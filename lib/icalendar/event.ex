@@ -21,6 +21,7 @@ defmodule ICalendar.Event do
             modified: nil,
             organizer: nil,
             sequence: nil,
+            transp: nil,
             attendees: []
 end
 
@@ -58,6 +59,7 @@ defimpl ICalendar.Serialize, for: ICalendar.Event do
 
   defp to_kv({key, value}) do
     name = key |> to_string |> String.upcase()
+
     KV.build(name, value)
   end
 end
